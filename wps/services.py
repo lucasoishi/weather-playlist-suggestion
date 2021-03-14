@@ -14,6 +14,10 @@ logger = logging.getLogger()
 
 class WeatherAPI(abc.ABC):
     @abc.abstractmethod
+    def get_location_weather(self, params):
+        pass
+
+    @abc.abstractmethod
     def get_location_temperature(self, location):
         pass
 
@@ -155,10 +159,10 @@ def get_genre(temperature: float) -> str:
 
 
 def get_playlists_recommendations(location: dict) -> List[Recommendation]:
-    openweather_api = get_weather_api()
-    spotify_api = get_playlist_api()
+    weather_api = get_weather_api()
+    playlist_api = get_playlist_api()
     logger.info(f'Using location {location}')
-    location_temperature = openweather_api.get_location_temperature(location)
+    location_temperature = weather_api.get_location_temperature(location)
     genre = get_genre(location_temperature)
-    recommendations = spotify_api.get_recommendations(genre)
+    recommendations = playlist_api.get_recommendations(genre)
     return recommendations
