@@ -41,3 +41,4 @@ shell: clean ## ipython shell
 
 test: clean ## test using pytest
 	@cd ${PROJECT_NAME} && python -m pytest . -s -v
+
