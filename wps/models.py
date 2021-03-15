@@ -1,6 +1,6 @@
 from typing import List
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class Recommendation(BaseModel):
@@ -13,10 +13,10 @@ class Recommendation(BaseModel):
 
 class CityInformation(BaseModel):
     city: str
-    state: str
-    country: str
+    state: str = Field(..., max_length=2, strip_whitespace=True)
+    country: str = Field(..., max_length=2, strip_whitespace=True)
 
 
-class Coordinates(BaseModel):
+class GeoPosition(BaseModel):
     latitude: float
     longitude: float

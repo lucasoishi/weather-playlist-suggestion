@@ -18,6 +18,9 @@ style: clean ## format code and sort imports
 style-check: ## black format check
 	@black --check -S -t py38 -l ${LINES} .
 
+mypy-check: ## mypy type check
+	@mypy ${PROJECT_NAME}/
+
 pylint-check: ## pylint check
 	@pylint --rcfile=.pylintrc ${PROJECT_NAME}/
 

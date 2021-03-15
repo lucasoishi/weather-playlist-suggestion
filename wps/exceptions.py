@@ -4,3 +4,7 @@ class NoContentFound(Exception):
 
 class InvalidLocation(Exception):
     pass
+
+
+class RequestLimitExceeded(Exception):
+    pass

@@ -1,4 +1,4 @@
-from decouple import config
+from decouple import config  # type: ignore
 
 # OPEN WEATHER
 OPENWEATHER_API_KEY = config('OPENWEATHER_API_KEY')
