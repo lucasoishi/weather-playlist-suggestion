@@ -15,6 +15,9 @@ style: clean ## format code and sort imports
 	@black -S -t py38 -l ${LINES} .
 	@isort .
 
+python-requirements: ## install python requeriments
+	@poetry install
+
 style-check: ## black format check
 	@black --check -S -t py38 -l ${LINES} .
 
